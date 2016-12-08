@@ -13,15 +13,13 @@ Memory complexity: O(1)
 
 const rotateArray = (arr, num) => {
 	// let's start with O(n) memory complexity then optimize
-	// loop through array at num offset from length
+	// loop through array at num offsetb from length
 	let loopStart = arr.length - num;
 	if (loopStart > arr.length) {
 		loopStart = loopStart - arr.length;
 	}
-	for(var i = 0; i < arr.length; i++) {
-		let placeHolder = arr[i];
-		arr[i] = arr[loopStart];
-		arr[loopStart] = placeHolder;
+	for(let i = 0; i < loopStart; i++) {
+		let placeHolder = arr[loopStart - i]
 	}
 	return arr;
 }
