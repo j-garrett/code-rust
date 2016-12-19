@@ -8,6 +8,9 @@ O(n) time complexity and O(1) memory complexity
 
 const mergeOverlaps = (arr) => {
   // Build new interval.
+  if (arr === undefined) {
+    return;
+  }
   const merged = [arr[0]];
   // Iterate over input array
   for (let i = 0; i < arr.length; i++) {
@@ -23,7 +26,8 @@ const mergeOverlaps = (arr) => {
   }
   return merged;
 };
-
+console.log(mergeOverlaps());
 console.log(mergeOverlaps([[1, 5], [3, 7], [4, 6], [6, 8]]));
 console.log(mergeOverlaps([[10, 12], [11, 15]]));
+console.log(mergeOverlaps([[1, 5], [3, 7], [4, 6], [6, 8], [10, 12], [11, 15]]));
 
