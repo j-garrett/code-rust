@@ -12,14 +12,16 @@ Quick sort uses a pivot method ->
 const quickSort = (arr, startIdx, endIdx) => {
   // Start pivot at 0 index and grab its value
   pivot = startIdx || 0;
+  const finalIdx = endIdx + 1 || arr.length;
   let pivotVal = arr[pivot];
   // If left group and right group are overlapping, we can return... if recursing
   // Iterate over array
   let largerStart = pivot + 1;
   let largerEnd = endIdx || arr.length - 1;
-  let smallerStart = startIdx || pivot + 1;
-  let smallerEnd;
-  for (let i = pivot + 1; i < arr.length; i += 1) {
+  let smallerStart = startIdx + 1 || pivot + 1;
+  let smallerEnd = smallerStart;
+  for (let i = pivot + 1; i < finalIdx; i += 1) {
+    console.log('pivot index: ', pivot);
       console.log('smallerStart and End: ', smallerStart);
   console.log('smallerStart and End: ', smallerEnd);
   console.log('larger Start and End: ', largerStart);
@@ -44,6 +46,7 @@ const quickSort = (arr, startIdx, endIdx) => {
       largerEnd += 1;
     }
   }
+  console.log('for loop complete');
   // After iteration, swap pivotVal with furthest right 'smaller' group
   arr[pivot] = arr[smallerEnd];
   arr[smallerEnd] = pivotVal;
@@ -69,3 +72,4 @@ const quickSort = (arr, startIdx, endIdx) => {
 };
 
 console.log(quickSort([3, 2, 0, 5, 1]));
+console.log(quickSort([3, 2, 38, 5, 47, 15, 36, 26, 27, 44, 46, 4, 19, 50, 48]));
