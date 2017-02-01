@@ -23,9 +23,13 @@ const findMissingNumber = (arr) => {
     return acc + val;
   }, 0);
 
-  console.log('arrtotal: ', arrTotal);
-  console.log('numTotal: ', numTotal);
+  // console.log('arrtotal: ', arrTotal);
+  // console.log('numTotal: ', numTotal);
   return arrTotal - numTotal;
 };
 
-console.log('findMissingNumber: ', findMissingNumber([3, 7, 1, 2, 8, 4, 5])); // Should be 6
+const fMN = (arr) => arr.reduce((acc, val, idx) => acc - val, Math.floor(((arr.length + 1) * (arr.length + 2)) / 2));
+
+console.log('fMN should be 8: ', fMN([3, 7, 1, 2, 6, 4, 5, 10, 9]));
+console.log('findMissingNumber should be 6: ', findMissingNumber([3, 7, 1, 2, 8, 4, 5, 10, 9]));
+console.log('find sum with math: ', Math.floor(((10 + 1) * (10 + 2)) / 2));
